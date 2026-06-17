@@ -1,0 +1,9 @@
+# Python virtual environment (never commit this)
+venv/
+__pycache__/
+*.pyc
+
+# Sensitive incident data (do not commit)
+chat_logs.json
+retrieval_logs.xlsx
+api_access_logs.xlsx
