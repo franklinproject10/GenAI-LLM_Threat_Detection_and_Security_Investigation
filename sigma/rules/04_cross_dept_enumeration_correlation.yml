@@ -1,0 +1,24 @@
+title: Restricted Document Retrieval
+name: restricted_retrieval
+status: experimental
+logsource:
+    product: ai_assistant
+    service: retrieval
+detection:
+    selection:
+        sensitivity: 'Restricted'
+    condition: selection
+---
+title: Cross-Department Restricted Enumeration in a Single Session
+status: experimental
+description: Stateful detection. Fires when one session retrieves Restricted documents spanning three or more departments within ten minutes, which is enumeration rather than normal use.
+correlation:
+    type: value_count
+    rules:
+        - restricted_retrieval
+    group-by:
+        - session_id
+    timespan: 10m
+    condition:
+        gte: 3
+        field: department

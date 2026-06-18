@@ -1,0 +1,19 @@
+name: CentralReach AI Logs Pipeline
+priority: 10
+transformations:
+  - id: set_table_api_access
+    type: set_state
+    key: query_table
+    val:
+      - AIApiAccessLogs
+    rule_conditions:
+      - type: logsource
+        service: api_access
+  - id: set_table_retrieval
+    type: set_state
+    key: query_table
+    val:
+      - AIRetrievalLogs
+    rule_conditions:
+      - type: logsource
+        service: retrieval

@@ -1,0 +1,28 @@
+title: System Prompt Retrieval or Guardrail Block After Retrieval
+id: 2b8c1f10-0511-4a01-b003-a1a320260511
+status: experimental
+description: Detects retrieval of the AI assistant system prompt document, or a guardrail block that fired only after a document was already pulled into the model context.
+references:
+    - https://atlas.mitre.org/techniques/AML.T0051
+author: Frank, CentralReach SOC
+date: 2026-05-12
+tags:
+    - attack.initial-access
+logsource:
+    product: ai_assistant
+    service: retrieval
+detection:
+    selection_sysprompt:
+        document_name: 'AI_Assistant_System_Prompt.txt'
+    selection_block:
+        action: 'blocked_after_retrieval'
+    condition: 1 of selection_*
+falsepositives:
+    - Authorized administrator reviewing the system prompt
+level: high
+fields:
+    - session_id
+    - user
+    - document_name
+    - sensitivity
+    - action

@@ -1,0 +1,35 @@
+title: External Source Address Reaching the Internal AI Assistant APIs
+id: 2b8c1f10-0511-4a01-b001-a1a120260511
+status: experimental
+description: Detects requests to the AI assistant, RAG retrieval, or vector search APIs originating from a source address outside the corporate network.
+references:
+    - https://atlas.mitre.org/techniques/AML.T0012
+    - https://attack.mitre.org/techniques/T1078/
+author: Frank, CentralReach SOC
+date: 2026-05-12
+tags:
+    - attack.initial-access
+    - attack.t1078
+logsource:
+    product: ai_assistant
+    service: api_access
+detection:
+    selection_endpoint:
+        endpoint:
+            - '/v1/chat/completions'
+            - '/rag/retrieve'
+            - '/vector/search'
+    filter_internal:
+        source_ip|cidr:
+            - '10.0.0.0/8'
+            - '172.16.0.0/12'
+            - '192.168.0.0/16'
+    condition: selection_endpoint and not filter_internal
+falsepositives:
+    - Sanctioned partner integrations from known external addresses
+level: high
+fields:
+    - source_ip
+    - service_account
+    - endpoint
+    - user_agent
