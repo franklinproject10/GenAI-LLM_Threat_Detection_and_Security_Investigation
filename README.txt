@@ -7,3 +7,6 @@ Files included for the candidate:
 - api_access_logs.csv: LLM/RAG/vector service API activity.
 
 The data contains normal employee usage mixed with a simulated attack. Candidates should identify suspicious behavior, build a timeline, assess impact, and propose detections and mitigations.
+
+
+Technical Challenge Workflow images: https://imgur.com/a/dcgIncD
