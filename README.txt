@@ -1,3 +1,5 @@
+Technical Challenge:
+
 
 Files included for the candidate:
 - chat_logs.json: AI assistant prompts, responses, session metadata, risk labels, and guardrail decisions.
