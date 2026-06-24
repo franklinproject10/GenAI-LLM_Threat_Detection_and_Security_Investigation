@@ -7,3 +7,4 @@ __pycache__/
 chat_logs.json
 retrieval_logs.xlsx
 api_access_logs.xlsx
+backup/
