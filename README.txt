@@ -1,6 +1,6 @@
 # GenAI / LLM Threat Detection & Incident Response
 
-A reproducible, end-to-end investigation of a security incident targeting an enterprise **AI assistant** — from raw multi-source logs through framework-mapped findings, production-ready detections, and executive reporting.
+An end-to-end investigation of a security incident targeting an enterprise **AI assistant** — from raw multi-source logs through framework-mapped findings, production-ready detections, and executive reporting.
 
 This project simulates a realistic compromise of a RAG-backed LLM assistant and works it the way a SOC would work a real one: correlate the evidence, prove what actually happened, build detections that catch it, and communicate it to both engineers and leadership.
 
